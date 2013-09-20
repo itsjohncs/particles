@@ -21,7 +21,7 @@ int draw_init(int zwidth, int zheight)
     atexit(SDL_Quit);
 
     // Get a drawing surface to play with
-    screen = SDL_SetVideoMode(zwidth, zheight, 32, SDL_SWSURFACE | SDL_FULLSCREEN | SDL_DOUBLEBUF | SDL_RESIZABLE);
+    screen = SDL_SetVideoMode(zwidth, zheight, 32, SDL_SWSURFACE | SDL_DOUBLEBUF | SDL_RESIZABLE);
 
     // Let the rest of the program know the dimensions
     drawSurface_width = zwidth;

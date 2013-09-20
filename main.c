@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
     clock_t t2 = clock();
     int timeElapsed = 0;
 
-    if (draw_init(1920, 1080) != 0) exit(-1);
+    if (draw_init(400, 400) != 0) exit(-1);
 
     // The amount of steps per second. Cannot be 0!
     const int stepsPerSec = 100;
@@ -104,10 +104,10 @@ int main(int argc, char *argv[])
         int c = clock();
         timeElapsed += c - t2;
         t2 = c;
-        if (timeElapsed >= 1000 / stepsPerSec)
+        if (timeElapsed >= CLOCKS_PER_SEC / stepsPerSec)
         {
-            step(drawSurface_width, drawSurface_height, timeElapsed / (1000 / stepsPerSec));
-            timeElapsed -= timeElapsed - timeElapsed % (1000 / stepsPerSec);
+            step(drawSurface_width, drawSurface_height, timeElapsed / (CLOCKS_PER_SEC / stepsPerSec));
+            timeElapsed -= timeElapsed - timeElapsed % (CLOCKS_PER_SEC / stepsPerSec);
             draw();
             ++ticks;
         }
@@ -119,7 +119,7 @@ int main(int argc, char *argv[])
             char s[100];
             sprintf((char*)&s, "Particles - FPS: %f", 1.0 / (((t_now - t) / (float)CLOCKS_PER_SEC) / 1000.0));
             SDL_WM_SetCaption((char*)&s, "Particles");
-            //printf("Time Elapsed: %f seconds (%f fps)\n", (t_now - t) / (float)CLOCKS_PER_SEC, 1.0 / (((t_now - t) / (float)CLOCKS_PER_SEC) / 1000.0));
+            // printf("Time Elapsed: %f seconds (%f fps)\n", (t_now - t) / (float)CLOCKS_PER_SEC, 1.0 / (((t_now - t) / (float)CLOCKS_PER_SEC) / 1000.0));
             t = t_now;
             ticks = 0;
         }
