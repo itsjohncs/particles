@@ -34,4 +34,4 @@ License
 -------------------
 
 I dedicate this code to the public domain. Specific terms are described in the
-`Unlicence <http://unlicense.org/>`_.
+`Unlicense <http://unlicense.org/>`_.
