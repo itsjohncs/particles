@@ -7,6 +7,13 @@
 
 #include "particleEngine/core/core.h"
 
+static const WINDOW_WIDTH = 400;
+static const WINDOW_HEIGHT = 400;
+
+// The number of "steps" (the smallest unit of time in the simulation) that
+// should occur every second.
+static const int STEPS_PER_SECOND = 100;
+
 static int mouseWell = -1;
 void setupDemo()
 {
@@ -66,10 +73,7 @@ int main(int argc, char *argv[])
     clock_t t2 = clock();
     int timeElapsed = 0;
 
-    if (draw_init(400, 400) != 0) exit(-1);
-
-    // The amount of steps per second. Cannot be 0!
-    const int stepsPerSec = 100;
+    if (draw_init(WINDOW_WIDTH, WINDOW_HEIGHT) != 0) exit(-1);
 
     int running = 1;
     while (running == 1)
@@ -104,10 +108,10 @@ int main(int argc, char *argv[])
         int c = clock();
         timeElapsed += c - t2;
         t2 = c;
-        if (timeElapsed >= CLOCKS_PER_SEC / stepsPerSec)
+        if (timeElapsed >= CLOCKS_PER_SEC / STEPS_PER_SECOND)
         {
-            step(drawSurface_width, drawSurface_height, timeElapsed / (CLOCKS_PER_SEC / stepsPerSec));
-            timeElapsed -= timeElapsed - timeElapsed % (CLOCKS_PER_SEC / stepsPerSec);
+            step(drawSurface_width, drawSurface_height, timeElapsed / (CLOCKS_PER_SEC / STEPS_PER_SECOND));
+            timeElapsed -= timeElapsed - timeElapsed % (CLOCKS_PER_SEC / STEPS_PER_SECOND);
             draw();
             ++ticks;
         }
