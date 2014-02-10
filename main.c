@@ -7,8 +7,8 @@
 
 #include "particleEngine/core/core.h"
 
-static const WINDOW_WIDTH = 400;
-static const WINDOW_HEIGHT = 400;
+static const WINDOW_WIDTH = 700;
+static const WINDOW_HEIGHT = 500;
 
 // The number of "steps" (the smallest unit of time in the simulation) that
 // should occur every second.
