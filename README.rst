@@ -27,7 +27,7 @@ should find the necessary packages (``yum search SDL`` or
 
 If you are on Windows or Mac you may have a tougher time getting SDL on your
 computer. If you'd like assistance with it feel free to email me at
-jsull003@ucr.edu, though be warned that I don't often do C development on
+the email on my profile, though be warned that I don't often do C development on
 either of those platforms and will be trying to figure it out alongside you.
 
 License
